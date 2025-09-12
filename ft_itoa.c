@@ -25,7 +25,7 @@ static size_t	ft_count_digits_integer(long int n)
 	if (n <= 9)
 		i++;
 	else
-		i = i + 1 + count_digits(n / 10);
+		i = i + 1 + ft_count_digits_integer(n / 10);
 	return (i);
 }
 

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lwencesl <laherwpayotmaciel@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -23,6 +23,10 @@ int	ft_fdputnbr(int fd, double nbr, char *base, double size);
 int	ft_fdput_hexadecimal(int fd, double nbr, char *base, double size);
 int	ft_fdput_pointer_hex(int fd, unsigned long long nbr,
 		char *base, unsigned long long size);
+int	ft_fdprintargs(int fd, char **s);
+int	ft_fdprintargsn(int fd, char **s);
+int	ft_fdprintargsc(int fd, char **s);
+int	ft_fdprintargscn(int fd, char **s);
 
 /**
  * @brief Auxiliary function for formatting and printing data based on a format
@@ -48,6 +52,14 @@ int	ft_fdprintaux(int fd, const char format, va_list args)
 		return (ft_fdputchr(fd, va_arg(args, int)));
 	if (format == 's')
 		return (ft_fdputstr(fd, va_arg(args, char *)));
+	if (format == 'a')
+		return (ft_fdprintargs(fd, va_arg(args, char **)));
+	if (format == 'A')
+		return (ft_fdprintargsc(fd, va_arg(args, char **)));
+	if (format == 't')
+		return (ft_fdprintargsn(fd, va_arg(args, char **)));
+	if (format == 'T')
+		return (ft_fdprintargscn(fd, va_arg(args, char **)));
 	if (format == 'i' || format == 'd')
 		return (ft_fdputnbr(fd, va_arg(args, int), "0123456789", 10));
 	if (format == 'u')
@@ -82,7 +94,7 @@ int	ft_fdprintaux(int fd, const char format, va_list args)
  * @return The total number of characters printed, excluding the null
  * terminator.
  */
-int	ft_fdprintf(int fd, const char *format, ...)
+int	ft_printf_fd(int fd, const char *format, ...)
 {
 	size_t	i;
 	size_t	cont;

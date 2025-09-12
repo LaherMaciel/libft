@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 15:47:56 by lahermaciel       #+#    #+#             */
-/*   Updated: 2025/06/02 15:26:10 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/09/12 18:07:16 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,19 @@ char	*ft_copy_first_string(char *s1, char *sjoin, size_t *i)
 /**
  * @brief Joins two strings with optional memory management.
  *
- * This function concatenates two strings and optionally frees the original
- * strings based on the flag parameter. It handles NULL strings gracefully
- * and returns an empty string if both inputs are NULL.
+ * DIFFERENCE FROM ft_strjoin:
+ * - This is an ENHANCED version with automatic memory management
+ * - Accepts non-const char* parameters (can modify input strings)
+ * - Includes a 'flag' parameter for automatic memory cleanup:
+ *   - flag = 1: frees s1 after joining
+ *   - flag = 2: frees s2 after joining  
+ *   - flag = 3: frees both s1 and s2 after joining
+ * - Handles NULL strings gracefully (returns empty string if both NULL)
+ * - Uses ft_calloc instead of malloc for better memory safety
+ * - Designed for projects requiring automatic memory management
  *
- * @param s1 The first string to join.
- * @param s2 The second string to join.
+ * @param s1 The first string to join (can be freed if flag indicates).
+ * @param s2 The second string to join (can be freed if flag indicates).
  * @param flag Memory management flag: 1=frees s1, 2=frees s2, 3=frees both.
  * @return New concatenated string, or empty string if both inputs are NULL.
  */

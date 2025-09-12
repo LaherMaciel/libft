@@ -11,17 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-/* 
-char	*empty_src(void)
-{
-	char	*new_src;
-
-	new_src = ft_calloc(2, sizeof(char));
-	if (!new_src)
-		return (NULL);
-	return (new_src);
-}
- */
 /**
  * @brief Duplicates a string by creating a new dynamically allocated copy.
  *

@@ -1,0 +1,82 @@
+# Compiled Object files
+*.o
+*.obj
+*.so
+*.dylib
+*.dll
+*.exe
+
+# Static libraries
+*.a
+*.lib
+
+# Build directories
+bin/
+build/
+obj/
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 42 School specific files
+*.pdf
+*subject*
+*eval*
+*evaluation*
+*correction*
+*corrige*
+*enonce*
+*statement*
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Test files
+test_*
+*_test.c
+*_test.o
+test_libft
+
+# Documentation build
+docs/
+doc/
+
+# Coverage reports
+*.gcov
+*.gcno
+*.gcda
+coverage/
+
+# Profiling
+*.prof
+gmon.out
+
+# Core dumps
+core
+core.*
+
+# Valgrind
+valgrind-*
+
+# Memory check
+memcheck-*

@@ -13,7 +13,7 @@
 #include "libft.h"
 
 /**
- * @brief Rreturns a pointer to the first occurrence of the character c in the
+ * @brief Returns a pointer to the first occurrence of the character c in the
  * string s.
  *
  * This function searches for the first occurrence of the character 'c'

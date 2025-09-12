@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 18:20:26 by lwencesl          #+#    #+#             */
-/*   Updated: 2025/08/11 12:03:58 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/09/12 18:20:53 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,12 +111,10 @@ size_t		ft_strlcpy(char *dest, const char *src, size_t size);
 size_t		ft_strlcat(char *dest, const char *src, size_t n);
 char		*ft_strdup(const char *s);
 char		*ft_substr(char const *s, unsigned int start, size_t len);
-char		*ft_substr2(char const *s, unsigned int start, size_t len);
 char		*ft_strjoin(char const *s1, char const *s2);
 char		*ft_strjoin2(char *s1, char *s2, int flag);
 char		*ft_strtrim(const char *str, const char *set);
 char		**ft_split(char const *str, char c);
-char		**ft_split2(char const *str, char c);
 void		ft_striteri(char *s, void (*f)(unsigned int, char *));
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
@@ -169,7 +167,7 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 /* ************************************************************************** */
 
 int			ft_printf(const char *format, ...);
-int			ft_fdprintf(int fd, const char *format, ...);
+int			ft_printf_fd(int fd, const char *format, ...);
 
 /* ************************************************************************** */
 /*                           GET_NEXT_LINE                                    */
@@ -177,29 +175,5 @@ int			ft_fdprintf(int fd, const char *format, ...);
 
 char		*get_next_line(int fd);
 
-/* ************************************************************************** */
-/*                           SHELL PRINTF FUNCTIONS                           */
-/* ************************************************************************** */
-
-char		*ft_putchar_shell(int c);
-char		*ft_putstr_shell(char *str);
-char		*ft_putnbr_shell(long long int number, char *result);
-char		*ft_putnbr_u_shell(unsigned long long int number, char *result);
-char		*ft_puthex_shell(unsigned int number, char variable, char *result);
-char		*ft_putptr_shell(unsigned long long ptr, char *result);
-char		*ft_format_shell(va_list args, const char variable);
-int			ft_printf_shell(const char *str, ...);
-int			ft_div_num_base_shell(long int number, int base);
-
-/* ************************************************************************** */
-/*                           FD_SHELL FUNCTIONS                               */
-/* ************************************************************************** */
-
-char		*ft_fdputstr_shell(int fd, char *s);
-char		*ft_fdputchr_shell(int fd, char s);
-char		*ft_fdputnbr_shell(int fd, double nbr, char *base, double size);
-char		*ft_fdputpoint_shell(int fd, unsigned long long nbr, char *base,
-				unsigned long long size);
-int			ft_fdprintf_shell(int fd, const char *format, ...);
 
 #endif
