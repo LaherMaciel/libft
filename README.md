@@ -224,7 +224,7 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 
 **Laher Maciel**
 - GitHub: [@lahermaciel](https://github.com/lahermaciel)
-- 42 School: [@lahermaciel](https://profile.intra.42.fr/users/lahermaciel)
+- 42 School: [@lawences](https://profile-v3.intra.42.fr/users/lawences)
 
 ## 🙏 Acknowledgments
 
@@ -235,6 +235,5 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 ---
 
 <div align="center">
-  <p>Made with ❤️ for the 42 School community</p>
-  <p>⭐ Star this repository if you found it helpful!</p>
+  <p>Made at Lisbon 42 School</p>
 </div>
