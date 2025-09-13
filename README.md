@@ -49,6 +49,20 @@ Libft is a custom C library that reimplements standard C library functions and p
 ### 🛠️ Array Utilities
 - **Array management**: `ft_arraylen`, `ft_free_array`, `ft_rm_from_array`, `ft_swap`
 
+## 📁 Project Structure
+
+```
+libft/
+├── include/
+│   └── libft.h          # Main header file
+├── src/
+│   ├── ft_*.c           # All source files
+│   └── get_next_line_*.c # Bonus files
+├── Makefile             # Build configuration
+├── README.md            # This file
+└── test_libft.c         # Test suite
+```
+
 ## 🏗️ Installation
 
 ### Prerequisites
@@ -83,7 +97,7 @@ The build process will create `libft.a`, a static library containing all the fun
 ### Including the Library
 
 ```c
-#include "libft.h"
+#include "include/libft.h"
 ```
 
 ### Compiling with Libft
@@ -99,7 +113,7 @@ gcc -Wall -Wextra -Werror your_program.c libft.a
 ### Example Usage
 
 ```c
-#include "libft.h"
+#include "include/libft.h"
 #include <stdio.h>
 
 int main(void)
