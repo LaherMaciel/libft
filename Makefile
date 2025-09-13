@@ -6,7 +6,7 @@
 #    By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/31 18:07:37 by lwencesl          #+#    #+#              #
-#    Updated: 2025/09/13 01:59:10 by lahermaciel      ###   ########.fr        #
+#    Updated: 2025/09/13 02:28:55 by lahermaciel      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ src/ft_strlcat.c src/ft_strlcpy.c src/ft_strlen.c src/ft_strmapi.c src/ft_strncm
 src/ft_strrchr.c src/ft_strtrim.c src/ft_substr.c src/ft_tolower.c src/ft_toupper.c src/ft_lstnew.c\
 src/ft_lstadd_front.c src/ft_lstsize.c src/ft_lstlast.c src/ft_lstadd_back.c src/ft_lstdelone.c\
 src/ft_lstclear.c src/ft_lstiter.c src/ft_lstmap.c src/ft_printf.c src/ft_printf_utils.c src/ft_printf_utils2.c\
-src/ft_printf_fd.c src/ft_printf_fd_utils.c src/get_next_line_bonus.c src/get_next_line_utils_bonus.c\
+src/ft_printf_fd.c src/ft_printf_fd_utils.c src/ft_printf_fd_arrays.c src/get_next_line_bonus.c src/get_next_line_utils_bonus.c\
 src/ft_strcmp.c src/ft_free_array.c src/ft_arraylen.c src/ft_swap.c src/ft_rm_from_array.c\
 src/ft_strcpy.c src/ft_realloc.c src/ft_realloc_and_clear.c src/ft_isspace.c
 
@@ -41,8 +41,15 @@ RESET   = \033[0m
 all: $(NAME)
 
 $(NAME): $(OBJECTS_DIRECTORY) $(OBJECTS)
-		@$(AR) $(NAME) $(OBJECTS) > /dev/null 2>&1
-		@echo "[" "$(GREEN)OK$(RESET)" "] | libft.a created!"
+		@if $(AR) $(NAME) $(OBJECTS) > /dev/null 2>&1; \
+		then \
+			make norm -s; \
+			echo "[" "$(GREEN)OK$(RESET)" "] | libft.a created!"; \
+		else \
+			echo "[" "$(RED)Error$(RESET)" "] | An error occurred while creating libft.a."; \
+			make clean > /dev/null 2>&1; \
+			echo "[" "$(RED)Error$(RESET)" "] | All objects cleaned."; \
+		fi
 
 $(OBJECTS_DIRECTORY):
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Creating objects..."
@@ -61,6 +68,7 @@ clean:
 fclean: clean
 	@echo "[" "$(YELLOW)..$(RESET)" "] | Removing binary files...$(RESET)"
 	$(RM) $(NAME)
+	@rm -rf .norminette.log
 	@echo "[" "$(GREEN)OK$(RESET)" "] | Binary file removed."
 
 re: fclean
@@ -81,4 +89,18 @@ memtest: $(NAME)
 	@valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./test_libft
 	@echo "[" "$(GREEN)OK$(RESET)" "] | Memory check completed!"
 
-.PHONY: all clean fclean re test memtest
+norm:
+	@echo "[" "$(YELLOW)..$(RESET)" "] | Norminetting...$(RESET)"
+	@if norminette src/ include/ > .norminette.log 2>&1 ; then \
+	    if grep -q "Error!" .norminette.log; then \
+	        echo "[" "$(RED)!!$(RESET)" "] | Norminette found errors.$(RESET)"; \
+	        grep "Error!" .norminette.log | awk '{print "[ " "$(RED)!!$(RESET)" " ] | " $$0}'; \
+	    else \
+	        echo "[" "$(GREEN)OK$(RESET)" "] | Norminette passed!"; \
+	    fi; \
+	else \
+	    echo "[" "$(RED)XX$(RESET)" "] | Norminette Error!"; \
+		norminette src/ include/ | awk '/Error!/ {print "[ " "$(RED)!!$(RESET)" " ] | " $$0}'; \
+	fi
+
+.PHONY: all clean fclean re test memtest norm

@@ -77,20 +77,23 @@ libft/
 git clone https://github.com/lahermaciel/libft.git
 cd libft
 
-# Build the library
+# Build the library (includes automatic norminette check)
 make
 
 # Clean object files
 make clean
 
-# Clean everything
+# Clean everything (including norminette logs)
 make fclean
 
 # Rebuild
 make re
+
+# Run norminette check manually
+make norm
 ```
 
-The build process will create `libft.a`, a static library containing all the functions.
+The build process will create `libft.a`, a static library containing all the functions. **The build automatically runs norminette checking** to ensure code compliance with 42 School standards.
 
 ## 📖 Usage
 
@@ -139,7 +142,38 @@ make test
 
 # Run memory tests with valgrind
 make memtest
+
+# Run norminette check manually
+make norm
 ```
+
+## 🔍 Build Process & Quality Assurance
+
+### Automatic Norminette Checking
+The build process includes automatic norminette checking to ensure 42 School compliance:
+
+- **Automatic**: Norminette runs automatically after successful compilation
+- **Silent**: Output is logged to `.norminette.log` for review
+- **Smart**: Only shows errors if found, otherwise confirms compliance
+- **Integrated**: Part of the main build process, not a separate step
+
+### Build Flow
+1. **Compilation**: Compiles all source files to object files
+2. **Archiving**: Creates `libft.a` static library
+3. **Quality Check**: Runs norminette validation
+4. **Success**: Confirms library creation and compliance
+
+### Make Targets
+
+| Target | Description |
+|--------|-------------|
+| `make` | Build library with automatic norminette check |
+| `make clean` | Remove object files |
+| `make fclean` | Remove all generated files (including logs) |
+| `make re` | Clean and rebuild |
+| `make norm` | Run norminette check manually |
+| `make test` | Run comprehensive tests |
+| `make memtest` | Run memory tests with valgrind |
 
 ## 📋 Function Reference
 
@@ -217,11 +251,12 @@ ft_printf("Array:\n%T\n", arr);       // Output: Array:\n"hello"\n"world"\n"test
 
 This library is designed to meet 42 School requirements:
 
-- ✅ **Norme compliant**: Follows 42's coding standards
+- ✅ **Norme compliant**: Follows 42's coding standards (automatically verified)
 - ✅ **Memory safe**: Proper memory allocation and deallocation
 - ✅ **Error handling**: Robust error checking and NULL handling
 - ✅ **Documentation**: Comprehensive function documentation
 - ✅ **Testing**: Thoroughly tested functions
+- ✅ **Quality assurance**: Automatic norminette checking in build process
 
 ## 🤝 Contributing
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lwencesl <lwencesl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:04:51 by marvin            #+#    #+#             */
-/*   Updated: 2023/06/20 16:10:44 by lwencesl         ###   ########.fr       */
+/*   Updated: 2025/09/13 02:13:37 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,8 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		splited = (char **) ft_calloc(0, sizeof(char *));
 	else
-		splited = (char **) ft_calloc((ft_count_substrings(s, c) + 1), sizeof(char *));
+		splited = (char **) ft_calloc((ft_count_substrings(s, c) + 1),
+				sizeof(char *));
 	if (!splited)
 		return (NULL);
 	return (ft_create_substring_array(s, c, splited));

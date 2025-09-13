@@ -6,7 +6,7 @@
 /*   By: lahermaciel <lahermaciel@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 18:20:26 by lwencesl          #+#    #+#             */
-/*   Updated: 2025/09/13 02:02:26 by lahermaciel      ###   ########.fr       */
+/*   Updated: 2025/09/13 02:20:12 by lahermaciel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,6 +168,8 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 int			ft_printf(const char *format, ...);
 int			ft_printf_fd(int fd, const char *format, ...);
+int			ft_fdputchr(int fd, char s);
+int			ft_fdputstr(int fd, char *s);
 
 /* ************************************************************************** */
 /*                           GET_NEXT_LINE                                    */

@@ -44,14 +44,8 @@ int	ft_fdprintargscn(int fd, char **s);
  * @return The total number of characters printed, or 0 if the format specifier
  * is invalid.
  */
-int	ft_fdprintaux(int fd, const char format, va_list args)
+static int	ft_fdprint_array_formats(int fd, const char format, va_list args)
 {
-	if (!format)
-		return (-1);
-	if (format == 'c')
-		return (ft_fdputchr(fd, va_arg(args, int)));
-	if (format == 's')
-		return (ft_fdputstr(fd, va_arg(args, char *)));
 	if (format == 'a')
 		return (ft_fdprintargs(fd, va_arg(args, char **)));
 	if (format == 'A')
@@ -60,6 +54,19 @@ int	ft_fdprintaux(int fd, const char format, va_list args)
 		return (ft_fdprintargsn(fd, va_arg(args, char **)));
 	if (format == 'T')
 		return (ft_fdprintargscn(fd, va_arg(args, char **)));
+	return (0);
+}
+
+int	ft_fdprintaux(int fd, const char format, va_list args)
+{
+	if (!format)
+		return (-1);
+	if (format == 'c')
+		return (ft_fdputchr(fd, va_arg(args, int)));
+	if (format == 's')
+		return (ft_fdputstr(fd, va_arg(args, char *)));
+	if (format == 'a' || format == 'A' || format == 't' || format == 'T')
+		return (ft_fdprint_array_formats(fd, format, args));
 	if (format == 'i' || format == 'd')
 		return (ft_fdputnbr(fd, va_arg(args, int), "0123456789", 10));
 	if (format == 'u')
