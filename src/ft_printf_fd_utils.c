@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_fd_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lwencesl <laherwpayotmaciel@gmail.com>     +#+  +:+       +#+        */
+/*   By: lawences <laherwpayotmaciel@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 06:01:16 by lwencesl          #+#    #+#             */
-/*   Updated: 2023/01/03 17:08:27 by lwencesl         ###   ########.fr       */
+/*   Created: 2022/11/18 06:01:16 by lawences          #+#    #+#             */
+/*   Updated: 2023/01/03 17:08:27 by lawences         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
